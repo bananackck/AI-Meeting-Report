@@ -3,6 +3,7 @@ import Preloader from "../src/components/Pre";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home/Home";
 import Convert from "./components/Convert/Convert";
+import Summary from "./components/Summary/Summary";
 import Footer from "./components/Footer";
 
 import {
@@ -36,6 +37,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Convert" element={<Convert />} />
+          <Route path="/Summary" element={<Summary />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />

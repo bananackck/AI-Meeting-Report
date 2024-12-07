@@ -9,7 +9,7 @@ const TextsContext = React.createContext({
 function Text() {
   const [texts, setTexts] = useState([]);
   const fetchTexts = async () => {
-    const response = await fetch("http://127.0.0.1:8000");
+    const response = await fetch("http://127.0.0.1:8000/summary");
     const texts = await response.json();
     setTexts(texts);
   };

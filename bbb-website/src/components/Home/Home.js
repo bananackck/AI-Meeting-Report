@@ -1,9 +1,5 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-//import homeLogo from "../../Assets/home-main.svg";
-//import Home2 from "./Home2";
-//import Type from "./Type";
-import Button from "react-bootstrap/Button";
 import UploadFile from "./UploadFile";
 
 function Home() {
@@ -25,7 +21,10 @@ function Home() {
                 리타 스키터의 마법 깃펜
                 {/* <strong className="main-name"> SOUMYAJIT BEHERA</strong> */}
               </h1>
-
+              <h1 className="slogan">
+                "손 쉬운 회의록 작성 서비스"
+                {/* <strong className="main-name"> SOUMYAJIT BEHERA</strong> */}
+              </h1>
               {/* <div style={{ padding: 50, textAlign: "left" }}>
                 <Type />
               </div> */}

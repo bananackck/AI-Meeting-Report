@@ -6,14 +6,6 @@ html {
   --imp-text-color: #7d9622;
 }
 
-.purple {
-  color: var(--imp-text-color) !important;
-}
-
-button:focus {
-  box-shadow: none !important;
-}
-
 /* --------- */
 /*  Preloader(로딩화면) */
 /* --------- */
@@ -143,7 +135,7 @@ button:focus {
   }
 }
 .navbar-brand {
-  color: rgb(250, 250, 250) !important;
+  color: snow !important;
 }
 
 .logo {
@@ -152,7 +144,7 @@ button:focus {
 }
 
 .navbar-nav .nav-link {
-  color: white !important;
+  color: snow !important;
   padding-right: 1rem !important;
   padding-left: 1rem !important;
 }
@@ -186,7 +178,7 @@ button:focus {
   height: 5px;
   width: 0;
   border-radius: 16px;
-  background: #c95bf5;
+  background: snow;
   bottom: 1px;
   left: 0;
   z-index: -1;
@@ -263,24 +255,17 @@ button:focus {
 }
 
 .heading-name {
-  font-size: 1.5em !important;
+  font-size: 2em !important;
   padding-left: 45px !important;
+}
+.slogan {
+  font-size: 1.5em !important;
+  padding-left: 60px !important;
+  padding-top: 30px;
 }
 
 .main-name {
   color: #b0d237;
-}
-
-.myAvtar {
-  justify-content: center !important;
-  padding-top: 9em !important;
-}
-
-@media (max-width: 767px) {
-  .myAvtar {
-    padding-top: 2em !important;
-    padding-bottom: 2em !important;
-  }
 }
 
 .home-about-section {
@@ -406,10 +391,6 @@ button:focus {
   padding: 0 !important;
 }
 
-.blockquote-footer {
-  color: #a588c0 !important;
-}
-
 .blog-card {
   padding-top: 50px !important;
   padding-bottom: 50px !important;
@@ -468,16 +449,17 @@ button:focus {
   outline: none !important;
   box-shadow: none !important;
 }
-.project-heading {
-  color: white !important;
-  font-size: 2.3em !important;
-  font-weight: 500 !important;
-  padding-top: 10px !important;
-}
 
 /* --------- */
 /* Convert */
 /* --------- */
+
+.text-heading {
+  color: black !important;
+  font-size: 2em !important;
+  font-weight: 500 !important;
+  padding-bottom: 10px !important;
+}
 
 .about-section {
   position: relative !important;
@@ -485,37 +467,6 @@ button:focus {
   padding-bottom: 30px !important;
   background-color: snow !important;
   color: white !important;
-}
-
-.tech-icons {
-  font-size: 4.5em !important;
-  margin: 15px !important;
-  padding: 10px !important;
-  opacity: 0.93 !important;
-  border: 1.7px solid rgba(200, 137, 230, 0.637) !important;
-  vertical-align: middle !important;
-  text-align: center !important;
-  border-radius: 5px !important;
-  display: table !important;
-  box-shadow: 4px 5px 4px 3px rgba(89, 4, 168, 0.137) !important;
-  overflow: hidden !important;
-  transition: all 0.4s ease 0s !important;
-}
-
-@media (max-width: 767px) {
-  .tech-icons {
-    margin: 10px !important;
-  }
-}
-
-.tech-icons:hover {
-  transform: scale(1.05) !important;
-  overflow: hidden !important;
-  border: 2.2px solid rgba(197, 115, 230, 0.883) !important;
-}
-.tech-icon-images {
-  padding: 20px !important;
-  line-height: 1.6 !important;
 }
 
 .text-card {
@@ -542,57 +493,6 @@ button:focus {
   font-family: sans-serif !important;
 }
 
-.like-btn {
-  background-color: #934cce5e !important;
-  border-color: #934cce5e !important;
-  padding: 0.25rem 0.98rem !important;
-  border-radius: 5px !important;
-  line-height: 1.4 !important;
-  transition: 0.3s ease !important;
-}
-
-.like-btn:hover {
-  transform: translateY(-2px) !important;
-  background-color: #a24dd386 !important;
-  border-color: #a24dd386 !important;
-}
-
-.animate-like {
-  animation-name: likeAnimation;
-  animation-fill-mode: forwards;
-  animation-duration: 0.85s;
-}
-@keyframes likeAnimation {
-  0% {
-    transform: scale(1.5);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.fork-btn {
-  font-size: 1.1em !important;
-  padding-top: 10px !important;
-}
-
-.fork-btn-inner {
-  line-height: 1.4em !important;
-  background-color: #934cce5e !important;
-  padding: 0.25rem 1.1rem !important;
-  vertical-align: middle !important;
-  text-align: center !important;
-}
-
-.fork-btn-inner:hover {
-  transform: translateY(-2px) !important;
-  background-color: #a24dd386 !important;
-  border-color: #a24dd386 !important;
-}
-.fork-btn-inner::after {
-  display: none !important;
-}
-
 /* ----------- */
 /*  UploadFile */
 /* ----------- */
@@ -617,52 +517,4 @@ button:focus {
 .FileUploadWrapper {
   /* 파일 업로드 컴포넌트 전체 스타일 */
   width: 100%;
-}
-
-.UploadContainer {
-  position: relative;
-  flex: 1;
-  height: 2.75rem;
-  padding: 0.5rem 1rem;
-  background: #f2f2f2;
-  border-radius: 0.25rem;
-  display: flex;
-  align-items: center;
-}
-
-.FileList {
-  /* 선택된 파일 목록에 대한 스타일 */
-  margin-right: 10px;
-}
-
-.FileName {
-  /* 파일 이름에 대한 스타일 */
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.IconUploadClipContainer {
-  /* 파일 선택 아이콘에 대한 스타일 */
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-}
-
-.FileInput {
-  /* 파일 입력(input) 요소에 대한 스타일 */
-  display: none;
-}
-
-.ProgressBar {
-  /* 업로드 진행 상태를 나타내는 프로그레스 바에 대한 스타일 */
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  /* width: ${uploadProgress}%; */
-  height: 3px;
-  background-color: #007bff;
-  transition: width 0.3s ease;
 }

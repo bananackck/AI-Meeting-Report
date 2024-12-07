@@ -1,6 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Gothic&display=swap");
+
 .App {
   text-align: center;
   position: relative;
+  font-family: "Gowun Dodum", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .App-logo {

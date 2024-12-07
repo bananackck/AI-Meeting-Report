@@ -1,39 +1,60 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import useDrivePicker from "react-google-drive-picker";
 
 function UploadFile() {
-  const fileInput = React.useRef(null);
+  //Google Drive
+
   const [fileAudio, setFileAudio] = useState("");
-  const [expand, updateExpanded] = useState(false);
-  const [navColour, updateNavbar] = useState(false);
   const navigate = useNavigate(); // useNavigate 훅 사용
+  const [openPicker, data] = useDrivePicker();
+  const gToken =
+    "ya29.a0AeDClZAYXQgjkMHg84Z2DLo8ZMk8kRi4flUdCRZJiUeSkB_0i68w0M1g6GIIVF_QqltzU90MPluBlnQYngxV9HG90aIoF3pqFw0yjvQSXSdCJcVsM3fkIrcWRf8V1yE5TIC0Z8gzZz6rMiNR3WNbK7_yLyxv2Z8KeCv5xdCOaCgYKAQcSARISFQHGX2Mi3gd2JEg4Vx3QE3mvG-6v-g0175";
 
-  // 파일 입력 요소의 값이 변경되면 호출되는 함수
-  const handleChange = (e) => {
-    const selectedFile = e.target.files[0];
-    console.log(selectedFile);
-    if (selectedFile) {
-      setFileAudio(selectedFile.name); // 파일 이름을 상태로 설정
-    }
-  };
-
+  function handleOpenPicker() {
+    openPicker({
+      clientId:
+        "372486324653-k5i3hplcc837g9de1bk85o1dgq3da6v4.apps.googleusercontent.com",
+      developerKey: "AIzaSyCoFxrW-FJ9TfP45Fg6n-JPJ553stcBsgM", //API key
+      viewId: "DOCS",
+      token: gToken,
+      showUploadView: true,
+      showUploadFolders: true,
+      supportDrives: true,
+      multiselect: true,
+      // customViews: customViewsArray, // custom view
+      callbackFunction: (data) => {
+        if (data.action === "cancel") {
+          console.log("User clicked cancel/close button");
+        }
+        if (data.action === "picked") {
+          if (data.viewToken[0] === "upload") {
+            setFileAudio(data.docs[0].name);
+            console.log(data.docs[0].name);
+            //console.log("it's uploaded");
+          }
+        }
+      },
+    });
+  }
   useEffect(() => {
-    // fileAudio 값이 변경될 때마다 호출되는 코드
-    if (fileAudio) {
-      console.log("선택된 파일:", fileAudio);
+    console.log("useEffect");
+    if (data) {
+      console.log("data=", data);
     }
-  }, [fileAudio]);
+  }, [data]);
 
   return (
     <React.Fragment>
       <button
         className="UploadBtn"
         onClick={() => {
-          fileInput.current.click();
+          handleOpenPicker();
         }}
       >
         파일 업로드
       </button>
+
       <span> </span>
 
       <button
@@ -48,15 +69,6 @@ function UploadFile() {
       >
         회의록 생성
       </button>
-
-      {/* 파일 입력 요소 */}
-      <input
-        type="file"
-        ref={fileInput}
-        onChange={handleChange}
-        accept="audio/*"
-        style={{ display: "none" }}
-      />
     </React.Fragment>
   );
 }
