@@ -9,7 +9,20 @@ const TextsContext = React.createContext({
 function Text() {
   const [texts, setTexts] = useState([]);
   const fetchTexts = async () => {
-    const response = await fetch("http://127.0.0.1:8000");
+    const response = await fetch(
+      "https://de5c-34-143-184-211.ngrok-free.app/",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "ngrok-skip-browser-warning": "true",
+        },
+      }
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
     const texts = await response.json();
     setTexts(texts);
   };

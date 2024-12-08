@@ -9,7 +9,7 @@ function Convert() {
       <Container>
         <h1 className="text-heading">회의 텍스트</h1>
         <Text />
-        <DownloadFile />
+        {/* <DownloadFile /> */}
       </Container>
     </Container>
   );

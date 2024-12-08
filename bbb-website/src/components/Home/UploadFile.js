@@ -9,7 +9,7 @@ function UploadFile() {
   const navigate = useNavigate(); // useNavigate 훅 사용
   const [openPicker, data] = useDrivePicker();
   const gToken =
-    "ya29.a0AeDClZAYXQgjkMHg84Z2DLo8ZMk8kRi4flUdCRZJiUeSkB_0i68w0M1g6GIIVF_QqltzU90MPluBlnQYngxV9HG90aIoF3pqFw0yjvQSXSdCJcVsM3fkIrcWRf8V1yE5TIC0Z8gzZz6rMiNR3WNbK7_yLyxv2Z8KeCv5xdCOaCgYKAQcSARISFQHGX2Mi3gd2JEg4Vx3QE3mvG-6v-g0175";
+    "ya29.a0AeDClZCwy-IQEjvNSkKNUVz1gjHcsdXd0tLXJf7WRgj51XDqBsqKFvUduZJ3VSBB-WzKvSiP0cv4LwUoHshOQecNT-SuNoIyFYU8ahFMeumx0ccmif5xoPY54Ct8qpzqVckWs7HHyWmIjXImxANh8p7yIcSaoZjmd0ykPM8EaCgYKAT4SARISFQHGX2Miw65sdXTLfknSTtOI1s7Nsg0175";
 
   function handleOpenPicker() {
     openPicker({

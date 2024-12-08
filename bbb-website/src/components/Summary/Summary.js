@@ -6,7 +6,7 @@ function Summary() {
   return (
     <Container fluid className="about-section">
       <Container>
-        <h1 className="text-heading">회의 요약</h1>
+        {/* <h1 className="text-heading">회의 요약</h1> */}
         <Text />
       </Container>
     </Container>
