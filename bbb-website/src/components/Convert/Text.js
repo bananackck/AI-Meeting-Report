@@ -1,7 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
 
-const backendURL = "https://7555-34-125-161-53.ngrok-free.app/";
+const backendURL = "https://2d6c-34-125-22-126.ngrok-free.app/";
+const backendURLconvert = backendURL + "convert";
+
 const TextsContext = React.createContext({
   texts: [],
   fetchTexts: () => {},
@@ -10,7 +12,7 @@ const TextsContext = React.createContext({
 function Text() {
   const [texts, setTexts] = useState([]);
   const fetchTexts = async () => {
-    const response = await fetch(backendURL, {
+    const response = await fetch(backendURLconvert, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

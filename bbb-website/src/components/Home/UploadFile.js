@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useDrivePicker from "react-google-drive-picker";
 
-const backendURL = "https://7555-34-125-161-53.ngrok-free.app/";
+const backendURL = "https://2d6c-34-125-22-126.ngrok-free.app/";
 const backendURLcreate = backendURL + "create";
 const meetingreportsContext = React.createContext({
   meetingreports: [],
@@ -16,7 +16,7 @@ function UploadFile() {
   const navigate = useNavigate(); // useNavigate 훅 사용
   const [openPicker, data] = useDrivePicker();
   const gToken =
-    "ya29.a0AeDClZCwy-IQEjvNSkKNUVz1gjHcsdXd0tLXJf7WRgj51XDqBsqKFvUduZJ3VSBB-WzKvSiP0cv4LwUoHshOQecNT-SuNoIyFYU8ahFMeumx0ccmif5xoPY54Ct8qpzqVckWs7HHyWmIjXImxANh8p7yIcSaoZjmd0ykPM8EaCgYKAT4SARISFQHGX2Miw65sdXTLfknSTtOI1s7Nsg0175";
+    "ya29.a0AeDClZDGQLA8z09GP2Ouf6-eVibofxb4r62YXwuVUwWErx0oumHkQ94UbhOulSCP81KzlSwea41RfxyOgpmgp28zM5eS_-mSAJc1NfPnzYpC3cvA-knjEay3ITlpN7NGu13Ovpb9SH5Fr_Rt1Rx9KAmkIBLLHfyZ2Cp9tSWVaCgYKAZsSARISFQHGX2Mi58yKCfnhC-0VM2s7phCHCw0175";
 
   function handleOpenPicker() {
     openPicker({
@@ -61,6 +61,7 @@ function UploadFile() {
 
     const meetingreports = await response.json();
     console.log(meetingreports);
+    console.log("Meeting report ready!!");
     setMeetingreports(meetingreports.data);
   };
 
@@ -92,7 +93,7 @@ function UploadFile() {
           if (fileAudio) {
             console.log("회의록 생성 버튼 클릭됨:", fileAudio);
             // 파일이 선택되었으면, convert 페이지로 이동
-            navigate("/convert");
+            // navigate("/convert");
           }
         }}
       >

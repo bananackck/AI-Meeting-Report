@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 
-const backendURL = "https://5cf9-34-125-161-53.ngrok-free.app/";
+const backendURL = "https://2d6c-34-125-22-126.ngrok-free.app/";
 const backendURLsummary = backendURL + "summary";
 const backendURLdictionary = backendURL + "receive-dictionary";
 
@@ -78,7 +78,7 @@ function Text() {
     }, {});
 
     console.log(
-      "Sending data to server:",
+      "Sending data to server2:",
       JSON.stringify({ data: dictionary })
     );
     try {
