@@ -2,6 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useDrivePicker from "react-google-drive-picker";
 
+const backendURL = "https://7555-34-125-161-53.ngrok-free.app/";
+const backendURLcreate = backendURL + "create";
+const meetingreportsContext = React.createContext({
+  meetingreports: [],
+  fetchMeetingreport: () => {},
+});
+
 function UploadFile() {
   //Google Drive
 
@@ -37,11 +44,32 @@ function UploadFile() {
       },
     });
   }
+
+  const [meetingreports, setMeetingreports] = useState([]);
+
+  const fetchMeetingreport = async () => {
+    const response = await fetch(backendURLcreate, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "ngrok-skip-browser-warning": "true",
+      },
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const meetingreports = await response.json();
+    console.log(meetingreports);
+    setMeetingreports(meetingreports.data);
+  };
+
   useEffect(() => {
     console.log("useEffect");
     if (data) {
       console.log("data=", data);
     }
+    // fetchMeetingreport ()
   }, [data]);
 
   return (
@@ -60,6 +88,7 @@ function UploadFile() {
       <button
         className="UploadBtn"
         onClick={() => {
+          fetchMeetingreport();
           if (fileAudio) {
             console.log("회의록 생성 버튼 클릭됨:", fileAudio);
             // 파일이 선택되었으면, convert 페이지로 이동

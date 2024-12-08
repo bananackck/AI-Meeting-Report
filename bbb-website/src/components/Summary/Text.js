@@ -1,6 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
 
+const backendURL = "https://5cf9-34-125-161-53.ngrok-free.app/";
+const backendURLsummary = backendURL + "summary";
+const backendURLdictionary = backendURL + "receive-dictionary";
+
 const TextsContext = React.createContext({
   texts: [],
   fetchTexts: () => {},
@@ -11,16 +15,13 @@ function Text() {
   const [fills, setFills] = useState([]);
 
   const fetchTexts = async () => {
-    const response = await fetch(
-      "https://de5c-34-143-184-211.ngrok-free.app/summary",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "ngrok-skip-browser-warning": "true",
-        },
-      }
-    );
+    const response = await fetch(backendURLsummary, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "ngrok-skip-browser-warning": "true",
+      },
+    });
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -44,17 +45,14 @@ function Text() {
   // FastAPI로 데이터 업데이트 요청
   const updateTextOnServer = async (id, updatedValue) => {
     try {
-      const response = await fetch(
-        `https://de5c-34-143-184-211.ngrok-free.app/summary/${id}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            "ngrok-skip-browser-warning": "true",
-          },
-          body: JSON.stringify({ id, item: updatedValue }),
-        }
-      );
+      const response = await fetch(backendURLsummary + `${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "ngrok-skip-browser-warning": "true",
+        },
+        body: JSON.stringify({ id, item: updatedValue }),
+      });
 
       if (!response.ok) {
         throw new Error(`Failed to update text on server: ${response.status}`);
@@ -85,7 +83,7 @@ function Text() {
     );
     try {
       const response = await fetch(
-        "https://de5c-34-143-184-211.ngrok-free.app/receive-dictionary", // FastAPI 엔드포인트
+        backendURLdictionary, // FastAPI 엔드포인트
         {
           method: "POST", // POST 요청
           headers: {

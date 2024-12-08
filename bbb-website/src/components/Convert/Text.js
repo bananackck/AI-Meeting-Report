@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 
+const backendURL = "https://7555-34-125-161-53.ngrok-free.app/";
 const TextsContext = React.createContext({
   texts: [],
   fetchTexts: () => {},
@@ -9,16 +10,13 @@ const TextsContext = React.createContext({
 function Text() {
   const [texts, setTexts] = useState([]);
   const fetchTexts = async () => {
-    const response = await fetch(
-      "https://de5c-34-143-184-211.ngrok-free.app/",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "ngrok-skip-browser-warning": "true",
-        },
-      }
-    );
+    const response = await fetch(backendURL, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "ngrok-skip-browser-warning": "true",
+      },
+    });
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
